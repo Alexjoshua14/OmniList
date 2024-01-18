@@ -15,6 +15,7 @@ const ClearCompleted: FC<ClearCompletedProps> = ({ }) => {
     <div>
       <button
         onClick={() => dispatch(clearCompleted())}
+        className='hover:text-primary transition-colors'
       >
         <p>
           {`Clear Completed`}

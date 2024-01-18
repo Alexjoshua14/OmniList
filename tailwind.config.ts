@@ -52,6 +52,21 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        'accent-gradient': {
+          'blue': 'hsl(var(--accent-gradient-from))',
+          'pink': 'hsl(var(--accent-gradient-to))',
+        }
+      },
+      textColor: {
+        DEFAULT: "hsl(var(--text-primary))",
+        secondary: "hsl(var(--text-secondary))",
+        muted: "hsl(var(--text-muted))",
+        active: "hsl(var(--text-active))",
+      },
+      backgroundColor: {
+        primary: 'hsl(var(--background-primary))',
+        secondary: 'hsl(var(--background-secondary))',
+        muted: 'hsl(var(--text-muted))',
       },
       borderRadius: {
         lg: "var(--radius)",

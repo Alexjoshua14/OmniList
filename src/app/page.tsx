@@ -7,7 +7,7 @@ import Header from '@/components/Header'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-black text-white">
+    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-primary text-primary">
       <div className="z-0 absolute top-0 left-0 w-full h-full">
         <div className="relative w-full h-80 opacity-60 overflow-clip" style={{ background: 'hsl(var(--background-accent))' }}>
           <div>

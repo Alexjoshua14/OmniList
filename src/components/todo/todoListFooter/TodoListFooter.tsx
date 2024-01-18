@@ -14,7 +14,7 @@ const TodoListFooter: FC<TodoListFooterProps> = ({ }) => {
   // TODO: Create wrapper function to clear completed todos
 
   return (
-    <div className="h-16 w-full flex justify-between items-center text-sm">
+    <div className="h-16 w-full flex justify-between items-center text-sm text-secondary">
       {/* Items left */}
       <TodoCount />
 

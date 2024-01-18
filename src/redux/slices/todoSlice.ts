@@ -109,6 +109,7 @@ export const selectFilteredTodos = (state: RootState) => {
 export const selectActiveFilter = (state: RootState) => state.todo.filters.has(Filter.Active)
 export const selectCompletedFilter = (state: RootState) => state.todo.filters.has(Filter.Completed)
 export const selectFilter = (state: RootState) => state.todo.filters
+export const selectTodoStatus = (state: RootState, id: string) => state.todo.items.find((todo) => todo.id === id)?.completed
 
 export const selectCount = (state: RootState) => state.todo.items.length
 

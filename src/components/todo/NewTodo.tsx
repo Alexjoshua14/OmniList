@@ -35,7 +35,7 @@ const NewTodo: FC<NewTodoProps> = ({ }) => {
 
   return (
     <div
-      className="w-full h-full min-h-20 grid grid-cols-[1fr_9fr] bg-slate-800 shadow-lg"
+      className="w-full h-full min-h-20 grid grid-cols-[1fr_9fr] bg-secondary shadow-lg"
     >
       <TodoItemCheck id='' />
       <div className="w-full h-full flex items-center">

@@ -1,25 +1,28 @@
 'use client'
 
-import { FC } from 'react'
+import React, { FC } from 'react'
 import { toggleTodo } from '@/redux/slices/todoSlice'
 import { useAppDispatch } from '@/redux/hooks'
+import { CheckIcon } from '@radix-ui/react-icons'
+import { GradientCircle } from '@/components/misc/GradientCircle'
 interface TodoItemCheckProps {
   id: string
+  completed?: boolean
 }
 
-const TodoItemCheck: FC<TodoItemCheckProps> = ({ id }) => {
+const TodoItemCheck: FC<TodoItemCheckProps> = ({ id, completed }) => {
   const dispatch = useAppDispatch()
   const toggleTodoItem = () => {
     dispatch(toggleTodo(id))
   }
 
-
   return (
     <div className="relative w-full h-full p-2 grid place-items-center">
-      <button
-        className="w-full max-w-7 aspect-square rounded-full border-2 border-slate-100/20"
-        onClick={toggleTodoItem}
-      />
+      <GradientCircle active={completed}>
+        <button onClick={toggleTodoItem} className="w-full h-full grid place-content-center">
+          {completed && <CheckIcon className="-translate-x-[6%] scale-125" />}
+        </button>
+      </GradientCircle>
     </div>
   )
 }

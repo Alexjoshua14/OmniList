@@ -16,11 +16,11 @@ const TodoList: FC<TodoListProps> = ({ }) => {
 
   return (
     <motion.div
-      className="w-full px-4 bg-slate-800 rounded overflow-clip"
+      className="w-full px-4 bg-secondary rounded overflow-clip"
       transition={{ duration: 2 }}
     >
       <motion.div
-        className="flex flex-col items-center justify-center bg-slate-800"
+        className="flex flex-col items-center justify-center bg-secondary"
         transition={{ duration: 2 }}
       >
         <AnimatePresence>

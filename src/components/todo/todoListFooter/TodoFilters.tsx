@@ -19,7 +19,7 @@ const TodoFilters: FC<TodoFiltersProps> = ({ }) => {
     <div className="flex items-center gap-4">
       <button
         onClick={() => dispatch(clearFilters())}
-        className={`${activeFilter || completedFilter ? 'text-white/40' : 'text-white'} `}
+        className={`${activeFilter || completedFilter ? 'text-secondary hover:text-primary' : 'text-active'} transition-colors`}
       >
         <p>
           {`All`}
@@ -27,7 +27,7 @@ const TodoFilters: FC<TodoFiltersProps> = ({ }) => {
       </button>
       <button
         onClick={() => dispatch(toggleFilter(Filter.Active))}
-        className={`${activeFilter ? 'text-white' : 'text-white/40'} `}
+        className={`${activeFilter ? 'text-active' : 'text-secondary hover:text-primary'} transition-colors`}
       >
         <p>
           {`Active`}
@@ -35,7 +35,7 @@ const TodoFilters: FC<TodoFiltersProps> = ({ }) => {
       </button>
       <button
         onClick={() => dispatch(toggleFilter(Filter.Completed))}
-        className={`${completedFilter ? 'text-white' : 'text-white/40'} `}
+        className={`${completedFilter ? 'text-active' : 'text-secondary hover:text-primary'} transition-colors`}
       >
         <p>
           {`Completed`}
