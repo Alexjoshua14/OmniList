@@ -1,6 +1,7 @@
 'use client'
 
 import { useAppSelector } from '@/redux/hooks'
+import { selectCount } from '@/redux/slices/todoSlice'
 import { FC } from 'react'
 
 interface TodoCountProps {
@@ -9,7 +10,7 @@ interface TodoCountProps {
 
 const TodoCount: FC<TodoCountProps> = ({ }) => {
   // TODO: Change count to just uncompleted todos
-  const count = useAppSelector(state => state.todos.length)
+  const count = useAppSelector(selectCount)
 
   return (
     <div>

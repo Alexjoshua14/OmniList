@@ -1,9 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit"
 import todosReducer from "./slices/todoSlice"
+import { enableMapSet } from "immer"
+
+enableMapSet()
 
 const store = configureStore({
   reducer: {
-    todos: todosReducer,
+    todo: todosReducer,
   }
 })
 

@@ -1,7 +1,8 @@
 'use client'
 
 import { FC } from 'react'
-import TodoCount from './todoFooter/todoCount'
+import TodoFilters from './todoFooter/TodoFilters'
+import TodoCount from './todoFooter/TodoCount'
 
 interface TodoListFooterProps {
 }
@@ -19,23 +20,7 @@ const TodoListFooter: FC<TodoListFooterProps> = ({ }) => {
       <TodoCount />
 
       {/* Filters */}
-      <div className="flex items-center gap-4">
-        <button onClick={() => console.log(`All filter clicked`)}>
-          <p>
-            {`All`}
-          </p>
-        </button>
-        <button onClick={() => console.log(`Active filter clicked`)}>
-          <p>
-            {`Active`}
-          </p>
-        </button>
-        <button onClick={() => console.log(`Completed filter clicked`)}>
-          <p>
-            {`Completed`}
-          </p>
-        </button>
-      </div>
+      <TodoFilters />
 
       {/* Clear completed todos */}
       <div>
