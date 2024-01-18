@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Commissioner } from 'next/font/google'
 import './globals.css'
+import Providers from '@/components/providers/Providers'
 
 const commissioner =
   Commissioner({
@@ -20,7 +21,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={commissioner.className}>{children}</body>
+      <body className={commissioner.className}>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   )
 }
