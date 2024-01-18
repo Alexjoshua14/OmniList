@@ -2,13 +2,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
 import { createId } from '@paralleldrive/cuid2'
 
-export interface TodoState {
+export type Todo = {
   id: string
   text: string
   completed: boolean
 }
 
-const initialState: TodoState[] = [
+const initialState: Todo[] = [
   {
     id: createId(),
     text: '10 minutes mediation',
@@ -56,5 +56,6 @@ const todoSlice = createSlice({
 export const { addTodo, toggleTodo, removeTodo } = todoSlice.actions
 
 export const selectTodos = (state: RootState) => state.todos
+export const selectCount = (state: RootState) => state.todos.length
 
 export default todoSlice.reducer

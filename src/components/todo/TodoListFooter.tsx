@@ -1,6 +1,7 @@
 'use client'
 
 import { FC } from 'react'
+import TodoCount from './todoFooter/todoCount'
 
 interface TodoListFooterProps {
 }
@@ -15,11 +16,7 @@ const TodoListFooter: FC<TodoListFooterProps> = ({ }) => {
   return (
     <div className="h-16 w-full flex justify-between items-center text-sm">
       {/* Items left */}
-      <div>
-        <p>
-          {`${6} items left`}
-        </p>
-      </div>
+      <TodoCount />
 
       {/* Filters */}
       <div className="flex items-center gap-4">
