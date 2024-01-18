@@ -3,6 +3,7 @@
 import { FC } from 'react'
 import { Provider } from 'react-redux'
 import store from '@/redux/store'
+import ThemeProvider from './ThemeProvider'
 
 interface ProvidersProps {
   children: React.ReactNode
@@ -10,9 +11,16 @@ interface ProvidersProps {
 
 const Providers: FC<ProvidersProps> = ({ children }) => {
   return (
-    <Provider store={store}>
-      {children}
-    </Provider>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme='system'
+      enableSystem
+      disableTransitionOnChange
+    >
+      <Provider store={store}>
+        {children}
+      </Provider>
+    </ThemeProvider>
   )
 }
 
