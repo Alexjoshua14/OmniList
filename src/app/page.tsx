@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-black text-white">
       <div className="z-0 absolute top-0 left-0 w-full h-full">
-        <div className="relative w-full h-80 opacity-60" style={{ background: 'hsl(var(--background-accent))' }}>
+        <div className="relative w-full h-80 opacity-60 overflow-clip" style={{ background: 'hsl(var(--background-accent))' }}>
           <div>
             <div className="absolute w-80 h-80 -top-4 left-20 rounded-full blur opacity-70 mix-blend-multiply" style={{ background: 'radial-gradient(hsl(var(--background-accent-1)) 0%, transparent 60%)' }} />
             <div className="absolute w-[600px] h-96 bottom-0 right-0 rotate-12 rounded-full blur opacity-70 mix-blend-multiply" style={{ background: 'radial-gradient(hsl(var(--background-accent-2)) 0%, transparent 60%)' }} />
