@@ -6,6 +6,7 @@ import TodoListFooter from './todoListFooter/TodoListFooter'
 import { useAppSelector } from '@/redux/hooks'
 import { selectFilteredTodos, selectTodos } from '@/redux/slices/todoSlice'
 import { AnimatePresence, motion } from 'framer-motion'
+import Draggable from '../draggable/Draggable'
 
 interface TodoListProps {
 }
@@ -24,18 +25,20 @@ const TodoList: FC<TodoListProps> = ({ }) => {
         transition={{ duration: 2 }}
       >
         <AnimatePresence>
-          {todos.map((item, i) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              transition={{ duration: 0.4 }}
-              className="w-full"
-            >
-              <TodoItem todo={item} />
-            </motion.div>
-          ))}
+          <Draggable>
+            {todos.map((item, i) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.4 }}
+                className="w-full"
+              >
+                <TodoItem todo={item} />
+              </motion.div>
+            ))}
+          </Draggable>
         </AnimatePresence>
       </motion.div>
       <TodoListFooter />

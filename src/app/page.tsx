@@ -1,9 +1,9 @@
-import Image from 'next/image'
-import TodoItem from '../components/todo/todoItem/TodoItem'
+
 import TodoList from '../components/todo/TodoList'
-import TodoListFooter from '../components/todo/todoListFooter/TodoListFooter'
+
 import NewTodo from '@/components/todo/NewTodo'
 import Header from '@/components/Header'
+import Draggable from '@/components/draggable/Draggable'
 
 export default function Home() {
   return (
@@ -28,7 +28,6 @@ export default function Home() {
           {/* Todos */}
           <TodoList />
         </div>
-
       </div>
     </main >
   )
