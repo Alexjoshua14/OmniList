@@ -1,8 +1,7 @@
-'use client'
-
 import { FC } from 'react'
-import TodoFilters from './todoFooter/TodoFilters'
-import TodoCount from './todoFooter/TodoCount'
+import TodoFilters from './TodoFilters'
+import TodoCount from './TodoCount'
+import ClearCompleted from './ClearCompleted'
 
 interface TodoListFooterProps {
 }
@@ -23,13 +22,7 @@ const TodoListFooter: FC<TodoListFooterProps> = ({ }) => {
       <TodoFilters />
 
       {/* Clear completed todos */}
-      <div>
-        <button onClick={() => console.log(`Clear completed clicked`)}>
-          <p>
-            {`Clear Completed`}
-          </p>
-        </button>
-      </div>
+      <ClearCompleted />
     </div>
   )
 }

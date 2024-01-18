@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import TodoItem from '../components/todo/todoItem/TodoItem'
 import TodoList from '../components/todo/TodoList'
-import TodoListFooter from '../components/todo/TodoListFooter'
+import TodoListFooter from '../components/todo/todoListFooter/TodoListFooter'
 import NewTodo from '@/components/todo/NewTodo'
 import Header from '@/components/Header'
 
