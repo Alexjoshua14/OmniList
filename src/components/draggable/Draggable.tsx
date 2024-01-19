@@ -1,27 +1,32 @@
 'use client'
 
-import { FC, HTMLAttributes, ReactComponentElement, ReactNode, useCallback, useEffect, useState } from 'react'
+import { FC, HTMLAttributes, ReactNode, useCallback, useEffect, useState } from 'react'
 import DraggableChild from './DraggableChild'
 
+type ReactNodeWithKey = ReactNode & { key: string }
+
 interface DraggableProps extends HTMLAttributes<HTMLElement> {
-  children: Iterable<ReactNode>
+  children: ReactNode[]
+  onReorder?: (from: number, to: number) => void
 }
 
 // TOOD: Refine keys
-const Draggable: FC<DraggableProps> = ({ children }) => {
+const Draggable: FC<DraggableProps> = ({ children, onReorder }) => {
   const [divs, setDivs] = useState<ReactNode[]>([])
   const [currentDiv, setCurrentDiv] = useState<number>(-1)
   const [toDiv, setToDiv] = useState<number>(-1)
 
   useEffect(() => {
     setDivs(Array.from(children))
+    console.log(children[0])
   }, [children])
 
   const insertElement = useCallback(() => {
     if (currentDiv === -1 || toDiv === -1) return
     setDivs((prevOrder) => {
-      const withElemRemvoed = prevOrder.filter((_, i) => i !== currentDiv)
-      return [...withElemRemvoed.slice(0, toDiv), prevOrder[currentDiv], ...withElemRemvoed.slice(toDiv)]
+      const withElemRemoved = prevOrder.filter((_, i) => i !== currentDiv)
+      const elemToMove = prevOrder[currentDiv]
+      return [...withElemRemoved.slice(0, toDiv), elemToMove, ...withElemRemoved.slice(toDiv)]
     })
   }, [currentDiv, toDiv])
 
@@ -34,14 +39,17 @@ const Draggable: FC<DraggableProps> = ({ children }) => {
   }, [])
 
   const dragEnd = useCallback(() => {
-    insertElement()
-  }, [insertElement])
+    if (onReorder)
+      onReorder(currentDiv, toDiv)
+    else
+      insertElement()
+  }, [insertElement, onReorder, currentDiv, toDiv])
 
   return (
     <>
       {divs.map((div, i) => (
         <DraggableChild
-          key={div?.toString()}
+          key={(div as ReactNodeWithKey)?.key}
           dragStart={() => dragStart(i)}
           dragEnter={() => dragEnter(i)}
           dragEnd={dragEnd}

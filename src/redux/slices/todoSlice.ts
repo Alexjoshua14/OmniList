@@ -8,22 +8,26 @@ const initialState = {
     {
       id: createId(),
       text: "Tune in to Theo's live stream",
-      completed: true
+      completed: true,
+      order: 1,
     },
     {
       id: createId(),
       text: '10 minutes mediation',
       completed: false,
+      order: 0,
     },
     {
       id: createId(),
       text: 'Complete Todo App',
       completed: false,
+      order: 2,
     },
     {
       id: createId(),
       text: 'Touch grass',
       completed: false,
+      order: 3,
     }
   ],
   filters: new Set<Filter>(),
@@ -38,6 +42,7 @@ const todoSlice = createSlice({
         id: createId(),
         text: action.payload,
         completed: false,
+        order: state.items.length,
       }
       state.items.push(newTodo)
     },
@@ -76,15 +81,21 @@ const todoSlice = createSlice({
     },
     clearCompleted: (state) => {
       state.items = state.items.filter((todo) => !todo.completed)
+    },
+    reorder: (state, action: PayloadAction<{ oldIndex: number; newIndex: number }>) => {
+      const { oldIndex, newIndex } = action.payload
+      const [removed] = state.items.splice(oldIndex, 1)
+      state.items.splice(newIndex, 0, removed)
+      //TODO update order to enable persistence
     }
   },
 })
 
-export const { addTodo, toggleTodo, removeTodo, activeFilter, clearCompleted, clearFilters, completedFilter, toggleFilter } = todoSlice.actions
+export const { addTodo, toggleTodo, removeTodo, activeFilter, clearCompleted, clearFilters, completedFilter, toggleFilter, reorder } = todoSlice.actions
 
 export const selectTodos = (state: RootState) => state.todo.items
 
-export const selectFilteredTodos = (state: RootState) => {
+export const selectFilteredTodos = (state: RootState, ordered: boolean) => {
   
   const { items, filters } = state.todo
   let filteredItems = items
@@ -103,13 +114,20 @@ export const selectFilteredTodos = (state: RootState) => {
         break
     }
   })
+
+  if (ordered)
+    filteredItems.sort((a, b) => a.order - b.order)
+
   return filteredItems
 }
+
+export const selectOrderedTodos = (state: RootState) => state.todo.items.sort((a, b) => a.order - b.order)
 
 export const selectActiveFilter = (state: RootState) => state.todo.filters.has(Filter.Active)
 export const selectCompletedFilter = (state: RootState) => state.todo.filters.has(Filter.Completed)
 export const selectFilter = (state: RootState) => state.todo.filters
 export const selectTodoStatus = (state: RootState, id: string) => state.todo.items.find((todo) => todo.id === id)?.completed
+
 
 export const selectCount = (state: RootState) => state.todo.items.length
 

@@ -2,6 +2,7 @@ export type Todo = {
   id: string
   text: string
   completed: boolean
+  order: number
 }
 
 export enum Filter {

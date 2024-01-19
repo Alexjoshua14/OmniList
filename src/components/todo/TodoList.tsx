@@ -1,10 +1,10 @@
 'use client'
 
-import { FC } from 'react'
+import { FC, Fragment, useEffect, useState } from 'react'
 import TodoItem from './todoItem/TodoItem'
 import TodoListFooter from './todoListFooter/TodoListFooter'
-import { useAppSelector } from '@/redux/hooks'
-import { selectFilteredTodos, selectTodos } from '@/redux/slices/todoSlice'
+import { useAppDispatch, useAppSelector } from '@/redux/hooks'
+import { reorder, selectFilteredTodos, selectTodos } from '@/redux/slices/todoSlice'
 import { AnimatePresence, motion } from 'framer-motion'
 import Draggable from '../draggable/Draggable'
 
@@ -13,7 +13,8 @@ interface TodoListProps {
 
 // TODO: Wrap items in AnimatePresence and animate on enter/exit
 const TodoList: FC<TodoListProps> = ({ }) => {
-  const todos = useAppSelector(selectFilteredTodos)
+  const orderedTodos = useAppSelector(state => selectFilteredTodos(state, true))
+  const dispatch = useAppDispatch()
 
   return (
     <motion.div
@@ -25,8 +26,10 @@ const TodoList: FC<TodoListProps> = ({ }) => {
         transition={{ duration: 2 }}
       >
         <AnimatePresence>
-          <Draggable>
-            {todos.map((item, i) => (
+          <Draggable
+            onReorder={(from, to) => dispatch(reorder({ oldIndex: from, newIndex: to }))}
+          >
+            {orderedTodos.map((item) => (
               <motion.div
                 key={item.id}
                 initial={{ opacity: 0, y: -10 }}
