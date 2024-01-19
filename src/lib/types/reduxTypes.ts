@@ -12,5 +12,6 @@ export enum Filter {
 
 export interface TodoState {
   items: Todo[]
-  filter: Set<Filter>
+  //Note there is a non-serializable concern but for this simple app it's okay
+  filter: Set<Filter> 
 }

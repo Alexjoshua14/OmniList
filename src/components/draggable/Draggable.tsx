@@ -18,7 +18,6 @@ const Draggable: FC<DraggableProps> = ({ children, onReorder }) => {
 
   useEffect(() => {
     setDivs(Array.from(children))
-    console.log(children[0])
   }, [children])
 
   const insertElement = useCallback(() => {
