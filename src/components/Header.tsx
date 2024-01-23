@@ -8,7 +8,7 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = ({ }) => {
   return (
     <div
-      className="w-full flex items-center justify-between header"
+      className="w-full flex items-center justify-between header text-white"
     >
       <h1>
         OmniList

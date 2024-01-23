@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={commissioner.className}>
+      <body className={`${commissioner.className} bg-primary`}>
         <Providers>
           {children}
         </Providers>

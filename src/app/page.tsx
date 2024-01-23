@@ -3,7 +3,6 @@ import TodoList from '../components/todo/TodoList'
 
 import NewTodo from '@/components/todo/NewTodo'
 import Header from '@/components/Header'
-import Draggable from '@/components/draggable/Draggable'
 import TopBackground from '@/components/background/TopBackground'
 
 export default function Home() {

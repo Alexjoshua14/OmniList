@@ -35,7 +35,7 @@ const NewTodo: FC<NewTodoProps> = ({ }) => {
 
   return (
     <div
-      className="w-full h-full min-h-20 px-4 flex items-center bg-secondary/50 backdrop-blur-xl shadow-xl rounded"
+      className="w-full h-full min-h-20 px-4 flex items-center bg-secondary/90 backdrop-blur-xl shadow-xl rounded"
     >
       <div className='w-[10%]'>
         <TodoItemCheck id='' />
@@ -50,7 +50,7 @@ const NewTodo: FC<NewTodoProps> = ({ }) => {
                 <FormItem>
                   <FormControl>
                     <Input
-                      className="border-0 focus-visible:ring-0 shadow-none"
+                      className="text-lg border-0 focus-visible:ring-0 shadow-none"
                       placeholder='Create a new todo...'
                       {...field}
                     />

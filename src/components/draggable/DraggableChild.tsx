@@ -13,7 +13,7 @@ const DraggableChild: FC<DraggableChildProps> = ({ dragStart, dragEnter, dragEnd
       onDragStart={dragStart}
       onDragEnter={dragEnter}
       onDragEnd={dragEnd}
-      className="cursor-grab w-full h-full active:cursor-grabbing"
+      className="cursor-grab w-full h-full active:cursor-grabbing group"
     >
       {children}
     </div>

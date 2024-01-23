@@ -1,7 +1,23 @@
+'use client'
+
+import { useTheme } from 'next-themes'
+import Image from 'next/image'
 import { FC } from 'react'
 
 interface TopBackgroundProps {
 
+}
+
+const TopBackground_Figma: FC<TopBackgroundProps> = ({ }) => {
+  const { theme } = useTheme()
+  console.log(theme)
+
+  return (
+    <div className="relative w-full h-full">
+      <Image src={`/images/bg-mobile-${theme}.jpg`} alt="" fill sizes="100vw" quality={100} className="sm:hidden object-cover" />
+      <Image src={`/images/bg-desktop-${theme}.jpg`} alt="" fill sizes="100vw" quality={100} className="hidden sm:flex object-cover" />
+    </div>
+  )
 }
 
 const TopBackground: FC<TopBackgroundProps> = ({ }) => {
@@ -53,4 +69,4 @@ const TopBackground4: FC<TopBackgroundProps> = ({ }) => {
   )
 }
 
-export default TopBackground4
+export default TopBackground_Figma

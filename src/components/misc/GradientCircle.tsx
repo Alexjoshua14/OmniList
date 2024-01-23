@@ -12,7 +12,7 @@ export const GradientCircle: FC<GradientCircleProps> = ({ active, borderWidth, c
     <div
       className={cn(`
         relative w-full max-w-7 aspect-square rounded-full 
-        from-accent-gradient-pink to-accent-gradient-blue 
+        from-accent-gradient-pink to-accent-gradient-blue
         ${active ? 'bg-gradient-to-tl' : 'bg-border hover:bg-gradient-to-tl'}
         `, className)}
       {...props}
