@@ -10,12 +10,12 @@ interface TopBackgroundProps {
 
 const TopBackground_Figma: FC<TopBackgroundProps> = ({ }) => {
   const { theme } = useTheme()
-  console.log(theme)
+  const light = theme === 'light'
 
   return (
     <div className="relative w-full h-full">
-      <Image src={`/images/bg-mobile-${theme}.jpg`} alt="" fill sizes="100vw" quality={100} className="sm:hidden object-cover" />
-      <Image src={`/images/bg-desktop-${theme}.jpg`} alt="" fill sizes="100vw" quality={100} className="hidden sm:flex object-cover" />
+      <Image src={`/images/bg-mobile-${light ? 'light' : 'dark'}.jpg`} alt="" fill sizes="100vw" quality={100} className="sm:hidden object-cover" />
+      <Image src={`/images/bg-desktop-${light ? 'light' : 'dark'}.jpg`} alt="" fill sizes="100vw" quality={100} className="hidden sm:flex object-cover" />
     </div>
   )
 }
