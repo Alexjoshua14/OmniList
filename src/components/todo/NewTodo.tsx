@@ -35,12 +35,14 @@ const NewTodo: FC<NewTodoProps> = ({ }) => {
 
   return (
     <div
-      className="w-full h-full min-h-20 grid grid-cols-[1fr_9fr] bg-secondary shadow-lg"
+      className="w-full h-full min-h-20 px-4 flex items-center bg-secondary shadow-lg"
     >
-      <TodoItemCheck id='' />
-      <div className="w-full h-full flex items-center">
+      <div className='w-[10%]'>
+        <TodoItemCheck id='' />
+      </div>
+      <div className="flex-1 w-full h-full flex items-center">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(createTodo)}>
+          <form onSubmit={form.handleSubmit(createTodo)} className='w-full'>
             <FormField
               control={form.control}
               name='text'
