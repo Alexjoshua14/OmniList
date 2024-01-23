@@ -16,7 +16,7 @@ const TodoFilters: FC<TodoFiltersProps> = ({ }) => {
   const dispatch = useDispatch()
 
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-4 text-sm font-bold">
       <button
         onClick={() => dispatch(clearFilters())}
         className={`${activeFilter || completedFilter ? 'text-secondary hover:text-primary' : 'text-active'} transition-colors`}

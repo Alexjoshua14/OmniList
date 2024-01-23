@@ -14,16 +14,36 @@ const TodoListFooter: FC<TodoListFooterProps> = ({ }) => {
   // TODO: Create wrapper function to clear completed todos
 
   return (
-    <div className="h-16 w-full flex justify-between items-center text-sm text-secondary">
-      {/* Items left */}
-      <TodoCount />
+    <>
+      <div className="hidden sm:flex h-16 w-full px-0 justify-between items-center text-sm text-secondary bg-secondary">
+        {/* Items left */}
+        <TodoCount />
 
-      {/* Filters */}
-      <TodoFilters />
+        {/* Filters */}
 
-      {/* Clear completed todos */}
-      <ClearCompleted />
-    </div>
+        <TodoFilters />
+
+
+        {/* Clear completed todos */}
+        <ClearCompleted />
+      </div>
+      <div className="flex sm:hidden h-28 w-full flex-col gap-4 justify-between items-center text-sm text-secondary">
+        <div className="flex-1 w-full flex justify-between items-center bg-secondary px-4 text-xs rounded-b shadow-xl">
+          {/* Items left */}
+          <TodoCount />
+
+          {/* Clear completed todos */}
+          <ClearCompleted />
+        </div>
+        <div className="flex-1 w-full px-4 flex items-center justify-center rounded bg-secondary shadow-xl">
+
+          {/* Filters */}
+
+          <TodoFilters />
+
+        </div>
+      </div>
+    </>
   )
 }
 
